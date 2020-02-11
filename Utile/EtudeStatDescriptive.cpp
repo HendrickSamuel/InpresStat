@@ -3,7 +3,9 @@
 EtudeStatDescriptive::EtudeStatDescriptive(int argc,char* argv[])
 {
 	if (argc == 2)
+	{
 		EtudeStat1D E(argv[1],0);
+	}
 	else
 	if (argc == 3)
 		EtudeStat1D E(argv[1],atoi(argv[2]));

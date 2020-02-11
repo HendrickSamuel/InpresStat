@@ -2,11 +2,23 @@
 
 EtudeStat1D::EtudeStat1D(char* file, int col)
 {
-	StartFichier(file, col);
 	E = NULL;
 	E = new Echantillon();
-	if(E == NULL)
-		cout << "GROS PROBLEME" << endl;
+	StartFichier(file, col);
+	
+	DataSourceSerieContinue* pointeurCData = dynamic_cast<DataSourceSerieContinue*>(E->Source);
+	if(pointeurCData)
+	{
+		cout << "CECI EST UNE CONTINUE" << endl;
+		pointeurCData->Rapport();
+	}
+
+	DataSourceSerieDiscrete* pointeurDData = dynamic_cast<DataSourceSerieDiscrete*>(E->Source);
+	if(pointeurDData)
+	{
+		cout << "CECI EST UNE DISCRETE" << endl;
+		pointeurDData->Rapport();
+	}
 }
 
 void EtudeStat1D::StartFichier(char* file, int col)
@@ -29,20 +41,22 @@ void EtudeStat1D::StartFichier(char* file, int col)
 	
 	// definir si discret ou continu
 	fb.getline(Tampon, 800);
-	cout <<"Mode: "<< Tampon << endl;
 	
 	// selectionner la colonne necessaire
 	char* token;
 	token = strtok(Tampon,":");
 	for(int i = 1; i < col; i++)
+	{	
 		token = strtok(NULL, ":");
-	cout<<"token:" << token << endl;
+		if(token == NULL)
+			throw BaseException("la colonne selectionnee est soit incomplete soit inexistante");
+	}
+	cout<<"Mode:" << token << endl;
 	char mode = token[0];
 	// token = type de la colonne ! -- YEAY
 	getFileContent(fb, liste, col);
 	
-	//liste.Affiche();
-	Liste<Data1D> listeData = transfereListe(liste);
+	Liste<Data1D>* listeData = new Liste<Data1D>(transfereListe(liste));
 	
 	// definir le mode donc demarrer l'echantillon
 	DataSource* pdata = NULL;
@@ -50,35 +64,21 @@ void EtudeStat1D::StartFichier(char* file, int col)
 	if(mode == 'C')
 	{
 		cout << "MODE C" << endl;
-		pdata =new DataSourceSerieContinue(Nom,Sujet,0,0,&listeData);
-//		data.Rapport();
-//		pdata = dynamic_cast<DataSource*>(&data);
+		pdata =new DataSourceSerieContinue(Nom,Sujet,0,0,listeData);
 	}
 	else
 	if(mode == 'D')
 	{
 		cout << "MODE D" << endl;
-		pdata = new DataSourceSerieDiscrete(Nom, Sujet,0,0,&listeData);
-//		data.Rapport();
-//		pdata = dynamic_cast<DataSource*>(&data);
+		pdata = new DataSourceSerieDiscrete(Nom, Sujet,0,0,listeData);
 	}
 	
 	//pdata->Rapport();
-	
+	E->Source = pdata;
 		
-	DataSourceSerieContinue* pointeurCData = dynamic_cast<DataSourceSerieContinue*>(pdata);
-	if(pointeurCData)
-	{
-		cout << "CECI EST UNE PUTAIN DE CONTINUE" << endl;
-		pointeurCData->Rapport();	
-	}
-
-	DataSourceSerieDiscrete* pointeurDData = dynamic_cast<DataSourceSerieDiscrete*>(pdata);
-	if(pointeurDData)
-	{
-		cout << "CECI EST UNE PUTAIN DE DISCRETE" << endl;
-		pointeurDData->Rapport();
-	}
+	
+	 
+	
 		
 		
 	
@@ -176,7 +176,7 @@ void EtudeStat1D::AfficheRapport()
 //	GraphStat1DDiscrete w(*this);
 //	w.show();
 //	a->exec();
-	cout << "test" << endl;
+//	cout << "test" << endl;
 }
 
 

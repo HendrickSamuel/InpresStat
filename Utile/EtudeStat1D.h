@@ -12,7 +12,10 @@
 #include "Iterateur.h"
 #include "DataSourceSerieDiscrete.h"
 #include "DataSourceSerieContinue.h"
-//extern QApplication* a;
+//#include "graphstat1ddiscrete.h"
+
+#include <QApplication>
+extern QApplication* a;
 
 using namespace std;
 
