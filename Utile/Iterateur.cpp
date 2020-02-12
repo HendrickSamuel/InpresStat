@@ -42,7 +42,7 @@ template <class T> T Iterateur<T>::remove(){
 			pPrec ->suivant = pDepl->suivant;
 		}
 		delete pCur;
-		this->reset();
+			this->reset();
 		return val;
 	}
 	else

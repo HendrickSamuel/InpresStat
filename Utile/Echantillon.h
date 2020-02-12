@@ -1,18 +1,32 @@
 #ifndef ECHANTILLON_H
 #define ECHANTILLON_H
 
-#include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
+#include <QApplication>
+#include "Echantillon.h"
 
+#include "Liste.h"
+#include "Data1D.h"
+#include "ListeTriee.h"
+#include "Iterateur.h"
 #include "DataSource.h"
+#include "DataSourceSerieDiscrete.h"
+#include "DataSourceSerieContinue.h"
 
+using namespace std;
 class Echantillon
 {
-	public:
+	private:
 		DataSource* Source;
 	public:
-		void setSource(DataSource*);		
+		Echantillon(char*,int);
+		void setSource(DataSource*);
+		DataSource* getSource();		
+		void GetFileContent1D(char*,int);
+		Liste<Data1D> transfereListe(ListeTriee<float>&);
+		void getFileData1D(ifstream&,ListeTriee<float>& ,int);
 		Echantillon();
 };
 	

@@ -24,3 +24,25 @@ void DataSourceSerieContinue::Rapport()
 	L->Affiche();
 	//cout << "valeurs:" << L->Affiche() << endl; 
 }
+
+void DataSourceSerieContinue::getIntervale()
+{
+	cout << "Encodez votre valeur de début: " ;
+	cin >> Debut;
+	cout << "Encodez votre intervalle: ";
+	cin >> Intervalle; 
+	applicIntervale();
+}
+
+void DataSourceSerieContinue::applicIntervale()
+{
+	cout << "---------------------------" << endl;
+	Iterateur<Data1D> it(*L);
+	while(!it.end())
+	{
+		if(it.getpCur()->valeur.getVal() < Debut || it.getpCur()->valeur.getVal() > Debut + Intervalle)
+		// verifier si remove plus petit que une certaine valeur
+		it.remove();
+		it++;	
+	}		
+}

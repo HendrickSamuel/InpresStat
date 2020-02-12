@@ -27,14 +27,14 @@ class EtudeStat1D {
 		float Mediane;
 		float Mode[3];
 		
-		void getFileContent(ifstream&,ListeTriee<float>&,int);	
-		Liste<Data1D> transfereListe(ListeTriee<float>&);	
-		DataSource* methodeContinue(const char*, const char*,int,int,Liste<Data1D>*);
+		//void getFileContent(ifstream&,ListeTriee<float>&,int);	
+		//Liste<Data1D> transfereListe(ListeTriee<float>&);	
+		//DataSource* methodeContinue(const char*, const char*,int,int,Liste<Data1D>*);
 		
 	public:
 		EtudeStat1D(char* , int);
 		
-		void StartFichier(char* ,int);
+		//void StartFichier(char* ,int);
 		
 		float getMoyenne();
 		float getMode();
