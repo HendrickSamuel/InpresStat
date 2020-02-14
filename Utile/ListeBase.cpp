@@ -83,6 +83,30 @@ template <class T> Cellule<T>* ListeBase<T>::getpTete() const
 	return pTete;
 }
 
+template <class T> Cellule<T>* ListeBase<T>::getpQueu() const
+{
+	Cellule<T> *pDepl = getpTete();
+	if(pDepl != NULL)
+	{
+		while(pDepl->suivant != NULL)
+		{
+			pDepl = pDepl->suivant;
+		}
+	}
+	return pDepl;
+}
+
+//template <class T> Cellule<T>* ListeBase<T>::getElem(int case) const
+//{
+//	compteur = 0;
+//	Cellule<T> *pDepl = getpTete();
+//	while(pDepl!= NULL && compteur < case)
+//	{
+//		pDepl = pDepl->suivant;
+//	}
+//	return pDepl;
+//}
+
 template <class T> void ListeBase<T>::setpTete(Cellule<T>* point)
 {
 	pTete = point;

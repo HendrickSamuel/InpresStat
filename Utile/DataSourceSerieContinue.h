@@ -13,11 +13,13 @@ class DataSourceSerieContinue: public DataSource
 		float Debut;
 		float Intervalle;
 	public:
-		DataSourceSerieContinue(const char*, const char*, int, int, Liste<Data1D>*);
+		DataSourceSerieContinue(const char*, const char*, int, Liste<Data1D>*);
 		DataSourceSerieContinue(DataSourceSerieContinue&);
 		void applicIntervale();
 		void Rapport();
 		void getIntervale();
+		void CalculEffTotal();
+		Liste<Data1D>* getListe();
 };
 
 #endif

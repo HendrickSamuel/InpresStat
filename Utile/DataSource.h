@@ -6,6 +6,10 @@
 #include <iostream>
 #include <string.h>
 
+#define CONTINUE 2
+#define DISCRETE 1
+
+
 class DataSource {
 
 	protected: 
@@ -15,7 +19,7 @@ class DataSource {
 		int Type;
 	public:
 		DataSource();
-		DataSource(const char*, const char*, int, int);
+		DataSource(const char*, const char*, int);
 		virtual ~DataSource();
 		
 		/* -- GETTERS --*/

@@ -27,21 +27,27 @@ class EtudeStat1D {
 		float Mediane;
 		float Mode[3];
 		
+		void setMoyenne(float);
+		void setMediane(float);
+		void setMode(float,float,float);
+		float CalculMoyenne();
+		float CalculMediane();
 		//void getFileContent(ifstream&,ListeTriee<float>&,int);	
 		//Liste<Data1D> transfereListe(ListeTriee<float>&);	
 		//DataSource* methodeContinue(const char*, const char*,int,int,Liste<Data1D>*);
 		
 	public:
 		EtudeStat1D(char* , int);
+		void demarreCalcul(void);
 		
 		//void StartFichier(char* ,int);
 		
-		float getMoyenne();
-		float getMode();
-		float getMediane();
+		float getMoyenne() const;
+		const float* getMode() const;
+		float getMediane() const;
 		
-		float getEcartType();
-		float getEtendue();
+		float getEcartType() const;
+		float getEtendue() const;
 		
 		void AfficheRapport();
 };

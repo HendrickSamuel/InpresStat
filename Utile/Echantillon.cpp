@@ -24,6 +24,8 @@ void Echantillon::GetFileContent1D(char* file, int col)
 {
 	ListeTriee<float> liste;
 	ifstream fb(file,ios::in);
+	if(fb == NULL)
+		throw BaseException("le nom du fichier n'est pas bon");
 	
 	char Tampon[800];
 	char Nom[80];
@@ -31,12 +33,10 @@ void Echantillon::GetFileContent1D(char* file, int col)
 	
 	// prise du nom et du sujet
 	fb.getline(Tampon, 800);
-	cout <<"Nom: " <<Tampon << endl;	
 	strcpy(Nom, Tampon);
 	
 	
 	fb.getline(Tampon, 800);
-	cout <<"Sujet: " <<Tampon << endl;
 	strcpy(Sujet, Tampon);	
 	
 	// definir si discret ou continu
@@ -51,7 +51,7 @@ void Echantillon::GetFileContent1D(char* file, int col)
 		if(token == NULL)
 			throw BaseException("la colonne selectionnee est soit incomplete soit inexistante");
 	}
-	cout<<"Mode:" << token << endl;
+
 	char mode = token[0];
 	// token = type de la colonne ! -- YEAY
 	getFileData1D(fb, liste, col);
@@ -62,14 +62,12 @@ void Echantillon::GetFileContent1D(char* file, int col)
 	
 	if(mode == 'C')
 	{
-		cout << "MODE C" << endl;
-		Source =new DataSourceSerieContinue(Nom,Sujet,0,0,listeData);
+		Source =new DataSourceSerieContinue(Nom,Sujet,0,listeData);
 	}
 	else
 	if(mode == 'D')
 	{
-		cout << "MODE D" << endl;
-		Source = new DataSourceSerieDiscrete(Nom, Sujet,0,0,listeData);
+		Source = new DataSourceSerieDiscrete(Nom, Sujet,0,listeData);
 	}
 }
 

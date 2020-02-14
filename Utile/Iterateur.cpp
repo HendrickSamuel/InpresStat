@@ -34,8 +34,8 @@ template <class T> T Iterateur<T>::remove(){
 		}
 		if(pPrec == NULL)
 		{
-//			liste.setpTete(pCur->suivant);
-			liste.setpTete(liste.pTete->suivant);
+			liste.setpTete(pCur->suivant);
+			//liste.setpTete(liste.pTete->suivant);
 		}
 		else
 		{

@@ -21,6 +21,8 @@ template<class T> class ListeBase
 		const ListeBase<T>& operator=(const ListeBase&);
 		
 		Cellule<T>* getpTete(void) const;
+		Cellule<T>* getpQueu(void) const;
+//		Cellule<T>* getElem(int) const;
 		void setpTete(Cellule<T>*);		
 		bool estVide() const;
 		int getNombreElements() const;

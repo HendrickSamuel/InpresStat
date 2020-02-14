@@ -8,12 +8,13 @@ DataSource::DataSource()
 	Sujet = NULL;
 }
 
-DataSource::DataSource(const char* nom, const char* _sujet, int eff, int type)
+DataSource::DataSource(const char* nom, const char* _sujet, int eff)
 {
 	Nom = NULL;
 	Sujet = NULL;
 	setNom(nom);
 	setSujet(_sujet);
+	setEffTotal(0);
 	
 }
 
