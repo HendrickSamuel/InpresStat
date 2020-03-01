@@ -17,9 +17,11 @@ class DataSourceSerieContinue: public DataSource
 		DataSourceSerieContinue(DataSourceSerieContinue&);
 		void applicIntervale();
 		void Rapport();
-		void getIntervale();
+		void calculIntervalle();
+		float getIntervalle();
+		float getDebut();
 		void CalculEffTotal();
-		Liste<Data1D>* getListe();
+		Liste<Data1D>* getL();
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include "EtudeStatDescriptive.h"
 #include "BaseException.h"
 #include "EtudeStat1D.h"
+#include "EtudeStat2D.h"
 
 class EtudeStatDescriptive 
 {

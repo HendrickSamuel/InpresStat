@@ -21,6 +21,7 @@ class Data1D {
 		void setEff(int);
 		
 		friend ostream& operator<<(ostream&,const Data1D&);
+		
 };
 
 #endif

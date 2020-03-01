@@ -22,10 +22,12 @@ template<class T> class ListeBase
 		
 		Cellule<T>* getpTete(void) const;
 		Cellule<T>* getpQueu(void) const;
-//		Cellule<T>* getElem(int) const;
+		T getElement(int) const;
+
 		void setpTete(Cellule<T>*);		
 		bool estVide() const;
 		int getNombreElements() const;
+		int Size() const;
 		void Affiche() const;
 		virtual void insere(const T & val) = 0;
 		

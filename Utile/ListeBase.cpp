@@ -96,16 +96,17 @@ template <class T> Cellule<T>* ListeBase<T>::getpQueu() const
 	return pDepl;
 }
 
-//template <class T> Cellule<T>* ListeBase<T>::getElem(int case) const
-//{
-//	compteur = 0;
-//	Cellule<T> *pDepl = getpTete();
-//	while(pDepl!= NULL && compteur < case)
-//	{
-//		pDepl = pDepl->suivant;
-//	}
-//	return pDepl;
-//}
+template <class T> T ListeBase<T>::getElement(int val) const
+{
+	int compteur = 0;
+	Cellule<T> *pDepl = getpTete();
+	while(pDepl!= NULL && compteur < val)
+	{
+		pDepl = pDepl->suivant;
+		compteur++;
+	}
+	return pDepl->valeur;
+}
 
 template <class T> void ListeBase<T>::setpTete(Cellule<T>* point)
 {
@@ -131,6 +132,10 @@ template <class T> int ListeBase<T>::getNombreElements() const{
 	return compteur;
 }
 
+template <class T> int ListeBase<T>::Size() const{
+	return getNombreElements();
+}
+
 template <class T> void ListeBase<T>::Affiche() const{
 	Cellule<T> *pSupp;
 	pSupp = getpTete();
@@ -146,3 +151,5 @@ template class ListeBase<int>;
 template class ListeBase<float>;
 #include "Data1D.h"
 template class ListeBase<Data1D>;
+#include "Data2D.h"
+template class ListeBase<Data2D>;

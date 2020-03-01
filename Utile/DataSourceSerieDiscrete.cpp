@@ -6,6 +6,7 @@ DataSourceSerieDiscrete::DataSourceSerieDiscrete(const char* Nom, const char* Su
 	L = pl;
 	cout << "constructeur" << endl;
 	setType(DISCRETE);
+	CalculEffTotal();
 }
 
 void DataSourceSerieDiscrete::Rapport()
@@ -29,7 +30,7 @@ void DataSourceSerieDiscrete::CalculEffTotal()
 	setEffTotal(compteur);
 }
 
-Liste<Data1D>* DataSourceSerieDiscrete	::getListe()
+Liste<Data1D>* DataSourceSerieDiscrete	::getL()
 {
 	return L;
 }

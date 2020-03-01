@@ -77,6 +77,8 @@ template <class T> T& Iterateur<T>::operator&(){
 template class Iterateur<int>;
 #include "Data1D.h"
 template class Iterateur<Data1D>;
+#include "Data2D.h"
+template class Iterateur<Data2D>;
 template class Iterateur<float>;
 
 

@@ -41,3 +41,5 @@ template class Liste<int>;
 template class Liste<float>;
 #include "Data1D.h"
 template class Liste<Data1D>;
+#include "Data2D.h"
+template class Liste<Data2D>;

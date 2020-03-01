@@ -3,7 +3,7 @@
 DataSourceSerieContinue::DataSourceSerieContinue(const char* nom, const char* sujet, int eff, Liste<Data1D>* pl): DataSource(nom,sujet, eff)
 {
 	L = pl;
-	getIntervale();
+	calculIntervalle();
 	CalculEffTotal();
 	setType(CONTINUE);
 }
@@ -26,7 +26,7 @@ void DataSourceSerieContinue::Rapport()
 	//cout << "valeurs:" << L->Affiche() << endl; 
 }
 
-void DataSourceSerieContinue::getIntervale()
+void DataSourceSerieContinue::calculIntervalle()
 {
 	// afficher min et max.
 	CalculEffTotal();
@@ -41,12 +41,22 @@ void DataSourceSerieContinue::getIntervale()
 	applicIntervale();
 }
 
+float DataSourceSerieContinue::getIntervalle()
+{
+	return Intervalle;
+}
+
+float DataSourceSerieContinue::getDebut()
+{
+	return Debut;
+}
+
 void DataSourceSerieContinue::applicIntervale()
 {
 	Iterateur<Data1D> it(*L);
 	Liste<Data1D>* NL = new Liste<Data1D>();
 	int compteur = 0;
-	int borneInf = Debut;	
+	float borneInf = Debut;	
 	while(!it.end())
 	{
 		if(it.getpCur()->valeur.getVal() < Debut)
@@ -88,7 +98,7 @@ void DataSourceSerieContinue::CalculEffTotal()
 	setEffTotal(compteur);
 }
 
-Liste<Data1D>* DataSourceSerieContinue::getListe()
+Liste<Data1D>* DataSourceSerieContinue::getL()
 {
 	return L;
 }

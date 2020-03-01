@@ -14,7 +14,7 @@ class DataSourceSerieDiscrete: public DataSource
 		DataSourceSerieDiscrete(const char*, const char*, int, Liste<Data1D>*);
 		void Rapport();
 		void CalculEffTotal();
-		Liste<Data1D>* getListe();
+		Liste<Data1D>* getL();
 };
 
 #endif

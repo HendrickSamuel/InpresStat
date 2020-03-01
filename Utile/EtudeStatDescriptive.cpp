@@ -9,8 +9,9 @@ EtudeStatDescriptive::EtudeStatDescriptive(int argc,char* argv[])
 	else
 	if (argc == 3)
 		EtudeStat1D E(argv[1],atoi(argv[2]));
-	//if (argc == 4)
-	//	EtudeStat2D E(argv[1],atoi(argv[2]),atoi(argv[3]));
+	else
+	if (argc == 4)
+		EtudeStat2D E(argv[1],atoi(argv[2]),atoi(argv[3]));
 	else
 	throw BaseException("mauvais parametres");
 }
