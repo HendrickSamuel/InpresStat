@@ -7,8 +7,8 @@ EtudeStat2D::EtudeStat2D(char* fichier, int col1, int col2)
 	CalculMoy(1);
 	CalculMoy(2);
 	CalculCorr();
-	CalculCorrA();
-	CalculCorrB();
+	CalculCoeffA();
+	CalculCoeffB();
 	
 	AfficheRapport();
 } 
@@ -44,7 +44,7 @@ float EtudeStat2D::CalculCorr()
 	return res;
 }
 
-float EtudeStat2D::CalculCorrA()
+float EtudeStat2D::CalculCoeffA()
 {
 	DataSourceSerie2D* pt = dynamic_cast<DataSourceSerie2D*>(E->getSource());
 	if(!pt)
@@ -72,9 +72,9 @@ float EtudeStat2D::CalculCorrA()
 	return res;	
 }
 
-float EtudeStat2D::CalculCorrB()
+float EtudeStat2D::CalculCoeffB()
 {
-	float res = CalculMoy(2) - CalculCorrA() * CalculMoy(1);
+	float res = CalculMoy(2) - CalculCoeffA() * CalculMoy(1);
 	setCoeffB(res);
 	return res;
 }
@@ -184,6 +184,10 @@ void EtudeStat2D::AfficheRapport()
 
 void EtudeStat2D::Previsions()
 {
+	GraphStat2D w(this);
+	w.show();
+	a->exec();
+		
 	DataSourceSerie2D* pt = dynamic_cast<DataSourceSerie2D*>(E->getSource());
 	if(!pt)
 		throw BaseException("une erreur de type s'est produite");
@@ -222,4 +226,9 @@ void EtudeStat2D::Previsions()
 		
 	}
 	
+}
+
+Echantillon* EtudeStat2D::getE() const
+{
+	return E;
 }

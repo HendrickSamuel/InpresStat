@@ -38,8 +38,8 @@ void GraphStat2D::on_ButtonTracer_clicked()
     printf("on_ButtonTracer_clicked\n");fflush(stdout);
     
     p->setL(L);          // 1111111111111111111&&
-    EtudeLocal->setCoeffA();
-    EtudeLocal->setCoeffB();
+    EtudeLocal->CalculCoeffA();
+    EtudeLocal->CalculCoeffB();
     char	Buff[80];
     if (EtudeLocal->getCoeffB() > 0)
        sprintf(Buff,"%8.2f x + %8.2f",EtudeLocal->getCoeffA(),EtudeLocal->getCoeffB());

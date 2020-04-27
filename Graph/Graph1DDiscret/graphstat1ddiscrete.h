@@ -1,12 +1,13 @@
 #ifndef GRAPHSTATIS1DDISCRETE_H
 #define GRAPHSTATIS1DDISCRETE_H
 #include <QMainWindow>
-
-//#include "Echantillon.h"
+#include "Echantillon.h"
 #include "EtudeStat1D.h"
+
 namespace Ui {
 class GraphStat1DDiscrete;
 }
+class EtudeStat1D;
 
 class GraphStat1DDiscrete : public QMainWindow
 {

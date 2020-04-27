@@ -10,6 +10,8 @@ namespace Ui {
 class GraphStat2D;
 }
 
+class EtudeStat2D;
+
 class GraphStat2D : public QMainWindow
 {
     Q_OBJECT

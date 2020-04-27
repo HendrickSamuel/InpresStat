@@ -10,11 +10,9 @@ GRAPH2D=./Graph/Graph2D
 OBJS= Data1D.o EtudeStatDescriptive.o EtudeStat1D.o Iterateur.o\
 	DataSource.o DataSourceSerieDiscrete.o DataSourceSerieContinue.o\
 	Echantillon.o ListeBase.o Liste.o ListeTriee.o  BaseException.o \
-	#graphstat1ddiscrete.o moc_graphstat1ddiscrete.o graphstat1dcontinue.o moc_graphstat1dcontinue.o\
-	#graphstat2d.o moc_graphstat2d.o 
-# Data2D.o EtudeStat2D.o
-
-#DataSourceSerie2D.o 
+	graphstat1ddiscrete.o moc_graphstat1ddiscrete.o graphstat1dcontinue.o moc_graphstat1dcontinue.o\
+	Data2D.o EtudeStat2D.o DataSourceSerie2D.o graphstat2d.o moc_graphstat2d.o\
+	
 
 
 QTLIB= -L/usr/lib/64 -L/usr/X11/lib/64 -L/opt/Qt4.8/lib -lQtGui -L/opt/Qt4.8/lib -L/usr/lib/64 \

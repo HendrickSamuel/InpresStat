@@ -36,3 +36,8 @@ ostream& operator<<(ostream& s,const Data2D& d)
 	s << d.getVal1() << " \t " << d.getVal2() << endl;
 	return s;
 }
+
+bool Data2D::operator<(const Data2D& other)
+{
+	return (this->Val1 < other.Val1 && this->Val2 < other.Val2);
+}

@@ -132,9 +132,39 @@ template <class T> int ListeBase<T>::getNombreElements() const{
 	return compteur;
 }
 
-template <class T> int ListeBase<T>::Size() const{
+template <class T> int ListeBase<T>::Size() const
+{
 	return getNombreElements();
 }
+
+template <class T> void ListeBase<T>::retireElement(int val)
+{
+	int compteur = 0;
+	Cellule<T> *pDepl = getpTete();
+	Cellule<T> *pPrec = NULL;
+	while(pDepl!= NULL && compteur < val)
+	{
+		pPrec = pDepl;
+		pDepl = pDepl->suivant;
+		compteur++;
+	}
+	
+	if(compteur == val)
+	{
+		if(pPrec == NULL)
+		{
+			setpTete(pDepl->suivant);
+		}
+		else
+		{
+			pPrec->suivant = pDepl->suivant;
+		}
+		
+		delete pDepl;
+	}
+}
+
+
 
 template <class T> void ListeBase<T>::Affiche() const{
 	Cellule<T> *pSupp;

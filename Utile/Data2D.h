@@ -21,6 +21,7 @@ class Data2D {
 		void setVal2(float);
 		
 		friend ostream& operator<<(ostream&,const Data2D&);
+		bool operator<(const Data2D&);
 		
 };
 

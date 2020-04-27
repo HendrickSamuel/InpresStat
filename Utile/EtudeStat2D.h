@@ -6,6 +6,10 @@
 #include "Iterateur.h"
 #include "BaseException.h"
 #include <math.h>
+#include "graphstat2d.h"
+
+#include <QApplication>
+extern QApplication* a;
 
 class EtudeStat2D
 {
@@ -21,8 +25,8 @@ class EtudeStat2D
 	// setters
 	
 	float CalculCorr();
-	float CalculCorrA();
-	float CalculCorrB();
+	float CalculCoeffA();
+	float CalculCoeffB();
 	float CalculMoy(int);
 	
 	void setMoy1(float);
@@ -40,7 +44,7 @@ class EtudeStat2D
 	void AfficheRapport();
 	void Previsions();	
 	
-	
+	Echantillon* getE() const;
 };
 
 #endif

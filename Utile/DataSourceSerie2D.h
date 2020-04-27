@@ -23,7 +23,8 @@ class DataSourceSerie2D:public DataSource
 		int getType2(void);
 		Liste<Data2D>* getL(void);
 		void Affiche(void);
-	
+		
+		void setL(Liste<Data2D>*);
 };
 
 #endif

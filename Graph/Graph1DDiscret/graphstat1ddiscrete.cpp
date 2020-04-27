@@ -14,6 +14,7 @@ GraphStat1DDiscrete::GraphStat1DDiscrete(const EtudeStat1D& E1, QWidget *parent)
 cout << endl << "dans GraphStat1DDiscrete merce" << endl;
 DataSourceSerieDiscrete* p = dynamic_cast<DataSourceSerieDiscrete*>((E1.getE())->getSource());
 L = new Liste<Data1D>(*(p->getL()));    //-------------------
+cout << "TEST1" << endl;
 
 char	Buff[10];
 
@@ -26,6 +27,7 @@ sprintf(Buff,"%6.1f",E1.getMediane());
 ui->lineMediane->setText(Buff);
 float	M[5];
 int i = 0;
+cout <<"TEST" << endl;
 memcpy(M,E1.getMode(),40);
 
 char BMode[20];

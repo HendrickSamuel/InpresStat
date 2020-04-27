@@ -27,6 +27,7 @@ template<class T> class ListeBase
 		void setpTete(Cellule<T>*);		
 		bool estVide() const;
 		int getNombreElements() const;
+		void retireElement(int); 
 		int Size() const;
 		void Affiche() const;
 		virtual void insere(const T & val) = 0;

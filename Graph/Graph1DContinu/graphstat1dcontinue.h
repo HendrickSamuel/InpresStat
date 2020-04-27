@@ -7,6 +7,8 @@ namespace Ui {
 class GraphStat1DContinue;
 }
 
+class EtudeStat1D;
+
 class GraphStat1DContinue : public QMainWindow
 {
     Q_OBJECT

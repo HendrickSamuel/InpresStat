@@ -30,6 +30,11 @@ void DataSourceSerie2D::setType2(int type)
 	Type2 = type;
 }
 
+void DataSourceSerie2D::setL(Liste<Data2D>* liste)
+{
+	L = liste;
+}
+
 const char* DataSourceSerie2D::getSujet2()
 {
 	return Sujet2;
